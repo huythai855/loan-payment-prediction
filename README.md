@@ -1,57 +1,63 @@
-loan-payment-prediction
+Loan Payment Prediction
 ==============================
 
-A simple model to predict the user's ability to pay the loan.
+### Project Description
+- A simple model to predict the user's ability to pay the loan.
+- A part of my team's term-end assignment for the course **Data Warehousing - INT3207 1** at UET.
+- Team members:
+    - [21020035 Nguyễn Huy Thái](https://www.facebook.com/huythai855/)
+    - [21020327 Nguyễn Đức Hùng](https://www.facebook.com/hung1pmilo)
+    - [21020365 Đỗ Tuấn Nghĩa](https://www.facebook.com/nghia.cangao)
+    - [21020291 Trần Anh Dũng](https://www.facebook.com/trananhdung2801)
+    - [20020335 Kha Văn Thương](https://www.facebook.com/kvt1080)
 
-Project Organization
-------------
+### Dataset
+- You can download the data set from [here](https://www.kaggle.com/datasets/zhijinzhai/loandata).
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
+### Installation
+- Clone the repository
+  ```bash
+    git clone https://github.com/huythai855/loan-payment-prediction
+  ```
+- Change the data files in the `data/raw` folder.
+- Install the requirements
+  ```bash
+    pip install -r requirements.txt
+  ```
+- Run the project
+  ```bash
+    python3 src/models/train_model.py
+  ```
+- The result visualization will be saved in the `reports/figures` folder.
+
+### Sample Result
+<img src="reports/figures/plot.png" width="500" height="500"> 
+
+### Project Organization
+    ├── README.md                         <- This description file
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    │   ├── processed               <- The splited and preprocessed data.
+    │   └── raw                     <- The original data.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    ├── models                   
+    │   └── MRL.pkl                 <- Sample trained model.
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    ├── reports            
+    │   └── figures        
+    │     └── plot.png         <- Resulting plot based on the data.
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    ├── requirements.txt                <- The requirement libraries to set up the environment.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+    ├── setup.py                        <- Makes project pip installable (pip install -e .).
+    └── src
+       │
+       ├── data
+       │ └── make_dataset.py      <- Splits and preprocesses the data.
+       │
+       ├── models
+       │   ├── evaluate_model.py     <- Evaluates the model accurancy.
+       │   └── train_model.py        <- Trains the model.
+       │
+       └── visualization
+           └── visualize.py   <- Visualizes and exports the result.
 
-
---------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
