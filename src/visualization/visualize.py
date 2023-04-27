@@ -10,8 +10,18 @@ def visualize_model(y_test, y_pred):
         for j in range(conf_matrix.shape[1]):
             ax.text(x=j, y=i, s=conf_matrix[i, j], va='center', ha='center', size='xx-large')
 
+    plt.title('Confusion Matrix', fontsize=18)
+
+    tick_marks = [0,1,2]
+    class_name = ['COLLECTION', 'PAIDOFF', 'COL_PAIDOFF']
+
+    plt.xticks(ticks=tick_marks, labels=class_name, fontsize=14)
+    plt.yticks(ticks=tick_marks, labels=class_name, fontsize=14)
+
     plt.xlabel('Predictions', fontsize=18)
     plt.ylabel('Actuals', fontsize=18)
-    plt.title('Confusion Matrix', fontsize=18)
-    plt.xticks([0, 1, 2], ['COLLECTION', 'PAIDOFF', 'COLLECTION_PAIDOFF'], fontsize=14)
-    plt.savefig('../../reports/figures/plot.png', dpi=300, bbox_inches='tight')
+
+    plt.savefig('../../reports/figures/plot.png',
+                dpi=300,
+                bbox_inches='tight'
+                )
